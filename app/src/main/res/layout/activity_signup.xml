@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="signupviewmodel"
+            type="com.app.beyondroot.signup.SignUpViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightwhite"
+        android:paddingBottom="20dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="20dp"
+                    android:onClick="@{view-> signupviewmodel.backLogin(view)}"
+                    app:tint="@color/black"></ImageView>
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/signUp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/heading"></TextView>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="20dp"
+                android:paddingTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                android:layout_marginLeft="@dimen/leftmargin"
+                android:layout_marginRight="@dimen/rightmargin"
+                app:hintTextColor="@color/black">
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"
+                    style="@style/editextprop"
+                    android:paddingStart="0dp"
+                    android:text="@={signupviewmodel.userdetails.name}"
+                    android:inputType="textVisiblePassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tl_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tl_name"
+                    style="@style/marginprop">
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        android:paddingStart="0dp"
+                        android:text="@={signupviewmodel.userdetails.email}"
+                        android:inputType="textVisiblePassword"
+                        style="@style/editextprop"
+                        android:textSize="@dimen/textsize" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_phoneNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tl_email"
+                style="@style/marginprop">
+
+                <EditText
+                    android:id="@+id/et_phonenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phonenumber"
+                    android:paddingStart="0dp"
+                    android:inputType="number"
+                    android:text="@={signupviewmodel.userdetails.phonenumber}"
+                    style="@style/editextphoneprop"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/tl_phoneNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/marginprop">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:paddingStart="0dp"
+                    android:text="@={signupviewmodel.userdetails.password}"
+                    android:inputType="textPassword"
+                    style="@style/editextprop"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+                <RadioGroup
+                    android:id="@+id/rg_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tl_password"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="@dimen/leftmargin"
+                    android:layout_marginRight="@dimen/rightmargin"
+                    android:layout_marginTop="20dp">
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/black"
+                        android:textColor="@color/black"
+                        android:checked="true"
+                        android:text="@string/male">
+                    </RadioButton>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/black"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/female">
+                    </RadioButton>
+                </RadioGroup>
+
+            <Spinner
+                android:id="@+id/sp_cities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/cities"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="@dimen/leftmargin"
+                android:layout_marginRight="@dimen/rightmargin"
+                app:layout_constraintTop_toBottomOf="@+id/rg_gender"
+                android:background="@drawable/button_back"
+                app:layout_constraintStart_toStartOf="parent"
+                android:onItemSelected="@{(parent,view,pos,id)->signupviewmodel.onSelectItem(parent,view,pos,id)}"
+                app:layout_constraintEnd_toEndOf="parent">
+            </Spinner>
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                  app:layout_constraintEnd_toEndOf="@+id/sp_cities"
+                  app:layout_constraintTop_toTopOf="@+id/sp_cities"
+                  app:layout_constraintBottom_toBottomOf="@+id/sp_cities"
+                  app:tint="@color/black"></ImageView>
+
+                <TextView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="8dp"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:background="@color/black"
+                    android:layout_marginLeft="@dimen/leftmargin"
+                    android:layout_marginRight="@dimen/rightmargin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sp_cities"
+                    android:text="@string/submit"
+                    android:onClick="@{view-> signupviewmodel.submitdetails(view)}"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_redirectLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/alreadyhaveaccount"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="60dp"
+                    android:onClick="@{view-> signupviewmodel.backLogin(view)}"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_submit"
+                    app:layout_constraintEnd_toEndOf="parent"></TextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

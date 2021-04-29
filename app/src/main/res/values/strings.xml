@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Beyondroot</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="donthaveanaccount">Don\'t have an account? SignUp</string>
+    <string name="login">Login</string>
+    <string name="signUp">SignUp</string>
+    <string name="heading">18dp</string>
+    <string name="alreadyhaveaccount">Already have an account ? Login</string>
+    <string name="name">Name</string>
+    <string name="phonenumber">Phone Number</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="userdetials">User Details</string>
+    <string name="logout">Logout</string>
+    <string name="namecolon">Name :</string>
+    <string name="emailcolon">Email :</string>
+    <string name="phonecolon">Phone :</string>
+    <string name="gendercolon">Gender :</string>
+    <string name="citycolon">City :</string>
+    <string-array name="cities">
+        <item>Select City</item>
+        <item>Mohali</item>
+        <item>Fategarh Sahib</item>
+        <item>Patiala</item>
+        <item>Ludhiana</item>
+        <item>Amritsar</item>
+    </string-array>
+</resources>

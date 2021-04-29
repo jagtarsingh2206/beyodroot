@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="loginviewmodel"
+        type="com.app.beyondroot.login.LoginViewModel" />
+</data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/lightwhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/login"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="40dp"
+                android:textSize="18dp"></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+               android:gravity="center"
+                android:layout_marginBottom="60dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                style="@style/marginprop">
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    style="@style/editextprop"
+                    android:hint="@string/email"
+                    android:text="@={loginviewmodel.userDetails.email}"
+                    android:inputType="textVisiblePassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="20dp"
+                style="@style/marginprop">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:hint="@string/password"
+                    android:text="@={loginviewmodel.userDetails.password}"
+                    android:inputType="textPassword"
+                    style="@style/editextprop"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="8dp"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:background="@color/black"
+                    style="@style/marginprop"
+                    android:text="@string/login"
+                    android:onClick="@{view-> loginviewmodel.login(view)}"></TextView>
+
+
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/donthaveanaccount"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="60dp"
+                android:onClick="@{view-> loginviewmodel.signUp(view)}"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>
